@@ -32,6 +32,7 @@ function getClientData(){
   };
   return clientdata;
 }
+console.log(checkCookie('ty'))
 async function getToken(){
   let clientdata=getClientData();
 
