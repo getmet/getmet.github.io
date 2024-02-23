@@ -50,19 +50,18 @@ const token = await fetch("https://accounts.spotify.com/api/token", {
 setCookie('tn',token.access_token,3.6);
 return token.access_token;
 }
-async function getSearchResult(){
-let searchtype=document.getElementsByClassName('searchtype');
-  let address;
-let query=document.getElementById('search-query').value;
 
   
 let timer;
 let takeinput = document.getElementsByClassName('spotifyinput');
-takeinput.addEventListener('keyup',function (e) {
+takeinput.addEventListener('keyup',async function (e) {
   // Clears any outstanding timer
   clearTimeout(timer);
   // Sets new timer that may or may not get cleared
   timer = setTimeout(async function() {
+    let searchtype=document.getElementsByClassName('searchtype');
+  let address;
+let query=document.getElementById('search-query').value;
     let token=await getToken();
 for(let i=0;i<searchtype.length;i++){
   if(searchtype[i].checked===true){
@@ -82,6 +81,10 @@ let searchresult=await fetch(address, {
 console.log(await searchresult.json());
   }, 1000);
 });
+
+
+async function getSearchResult(){
+
 
 
   
