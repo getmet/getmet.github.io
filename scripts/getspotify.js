@@ -1,4 +1,4 @@
-import "cookie.js";
+import "/scripts/cookie.js";
 checkCookie('token');
 function getClientData(){
   let clientdata={
