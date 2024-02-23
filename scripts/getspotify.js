@@ -1,13 +1,38 @@
-import { setCookie, getCookie, checkCookie } from "./cookie.js";
-checkCookie('token');
-export function getClientData(){
+function setCookie(cname,cvalue,exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  
+function checkCookie(cname) {
+    let cookie = getCookie(cname);
+    return cookie!==false;
+}
+function getClientData(){
   let clientdata={
     id:'970d411408804c6f811075fbfd7b432f',
     c_secret:'a7fe6210e4164fc9973def44286735de'
   };
   return clientdata;
 }
-export async function getToken(){
+async function getToken(){
   let clientdata=getClientData();
 
   const token = await fetch("https://accounts.spotify.com/api/token", {
@@ -21,7 +46,7 @@ export async function getToken(){
   setCookie('tn',token.access_token,3.6);
   return token.access_token;
 }
-export async function getSearchResult(){
+async function getSearchResult(){
   let searchtype=document.getElementsByClassName('searchtype');
   let token=await getToken();
   let address;
