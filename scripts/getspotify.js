@@ -1,13 +1,13 @@
 import { setCookie, getCookie, checkCookie } from "./cookie.js";
 checkCookie('token');
-function getClientData(){
+export function getClientData(){
   let clientdata={
     id:'970d411408804c6f811075fbfd7b432f',
     c_secret:'a7fe6210e4164fc9973def44286735de'
   };
   return clientdata;
 }
-async function getToken(){
+export async function getToken(){
   let clientdata=getClientData();
 
   const token = await fetch("https://accounts.spotify.com/api/token", {
@@ -21,7 +21,7 @@ async function getToken(){
   setCookie('tn',token.access_token,3.6);
   return token.access_token;
 }
-async function getSearchResult(){
+export async function getSearchResult(){
   let searchtype=document.getElementsByClassName('searchtype');
   let token=await getToken();
   let address;
