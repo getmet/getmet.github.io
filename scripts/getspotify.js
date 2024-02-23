@@ -47,7 +47,7 @@ const token = await fetch("https://accounts.spotify.com/api/token", {
   },
   body: 'grant_type=client_credentials'
 }).then((data) => data.json()).then((accessObject) => accessObject);
-setCookie('tn',token.access_token,3.6);
+setCookie('tn',token.access_token,0.041);
 return token.access_token;
 }
 
