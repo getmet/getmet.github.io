@@ -12,15 +12,15 @@
       <div class="form-container">
         <div class="form-line">
             <label for="query">Search</label>
-            <input type="text" name="query" id="search-query" class="input1" oninput="getSearchResult()">
+            <input type="text" name="query" id="search-query" class="input1 spotifyinput" oninput="getSearchResult()">
         </div>
         <div class="form-line">
             <p>Search Type</p>
-            <input type="radio" name="searchtype" id="search-song" class="searchtype" checked onchange="getSearchResult()">
+            <input type="radio" name="searchtype" id="search-song" class="searchtype spotifyinput" checked onchange="getSearchResult()">
             <label for="search-song">Song</label>
-            <input type="radio" name="searchtype" id="search-artist" class="searchtype" onchange="getSearchResult()">
+            <input type="radio" name="searchtype" id="search-artist" class="searchtype spotifyinput" onchange="getSearchResult()">
             <label for="search-artist">Artist</label>
-            <input type="radio" name="searchtype" id="search-isrc" class="searchtype" onchange="getSearchResult()">
+            <input type="radio" name="searchtype" id="search-isrc" class="searchtype spotifyinput" onchange="getSearchResult()">
             <label for="search-isrc">ISRC</label>
         </div>
     </div>
