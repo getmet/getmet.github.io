@@ -34,7 +34,7 @@ return clientdata;
 }
 async function getToken(){
 let clientdata=getClientData();
-if(checkCookie('tn') || checkCookie('tn')!==""){
+if(checkCookie('tn') || getCookie('tn')!==""){
   let tokenavl=getCookie('tn');
   console.log(`tn = ${tokenavl}`)
   return tokenavl;
@@ -47,7 +47,7 @@ const token = await fetch("https://accounts.spotify.com/api/token", {
   },
   body: 'grant_type=client_credentials'
 }).then((data) => data.json()).then((accessObject) => accessObject);
-setCookie('tn',token.access_token,0.041);
+setCookie('tn',token.access_token,0.001);
 return token.access_token;
 }
 
