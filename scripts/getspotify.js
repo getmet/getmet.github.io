@@ -52,43 +52,14 @@ return token.access_token;
 }
 
   
-let timer;
-let takeinput = document.getElementsByClassName('spotifyinput');
-takeinput.addEventListener('keyup',async function (e) {
-  // Clears any outstanding timer
-  clearTimeout(timer);
-  // Sets new timer that may or may not get cleared
-  timer = setTimeout(async function() {
-    let searchtype=document.getElementsByClassName('searchtype');
+async function getSearchResult(){
+let searchtype=document.getElementsByClassName('searchtype');
   let address;
 let query=document.getElementById('search-query').value;
-    let token=await getToken();
-for(let i=0;i<searchtype.length;i++){
-  if(searchtype[i].checked===true){
-    if (searchtype[i].id==='search-isrc'){
-    address=`https://api.spotify.com/v1/search?type=track&q=isrc:${query}`;
-    } else if (searchtype[i].id==='search-song'){
-      address=`https://api.spotify.com/v1/search?type=track&q=${query}`;
-    }
-  }
-  
-}
-let searchresult=await fetch(address, {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  }
-})
-console.log(await searchresult.json());
-  }, 1000);
-});
-
-
-async function getSearchResult(){
-
 
 
   
-  /*setTimeout(async function() {
+  setTimeout(async function() {
        let token=await getToken();
 for(let i=0;i<searchtype.length;i++){
   if(searchtype[i].checked===true){
@@ -107,5 +78,5 @@ let searchresult=await fetch(address, {
 })
 console.log(await searchresult.json());
     }
-    ,3000);*/
+    ,3000);
 }
