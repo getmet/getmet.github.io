@@ -57,9 +57,14 @@ let query=document.getElementById('search-query').value;
   setTimeout(async function() {
        let token=await getToken();
 for(let i=0;i<searchtype.length;i++){
-  if (searchtype[i].id==='search-isrc'){
+  if(searchtype[i].checked===true){
+    if (searchtype[i].id==='search-isrc'){
     address=`https://api.spotify.com/v1/search?type=track&q=isrc:${query}`;
+    } else if (searchtype[i].id==='search-song'){
+      address=`https://api.spotify.com/v1/search?type=track&q=${query}`;
+    }
   }
+  
 }
 let searchresult=await fetch(address, {
   headers: {
