@@ -56,9 +56,9 @@ let searchtype=document.getElementsByClassName('searchtype');
 let query=document.getElementById('search-query').value;
 
   
-  let timer;
+let timer;
 let takeinput = document.getElementsByClassName('spotifyinput');
-takeinput.addEventListener(function (e) {
+takeinput.addEventListener('keyup',function (e) {
   // Clears any outstanding timer
   clearTimeout(timer);
   // Sets new timer that may or may not get cleared
