@@ -1,10 +1,10 @@
 <html lang='id'>
   <head>
-    <script src='/scripts/main.js'></script>
+    <script src='../scripts/main.js'></script>
     <script>
       getHead('search');
     </script>
-    <script src='/scripts/getspotify.js'></script>
+    <script src='../scripts/getspotify.js'></script>
   </head>
   <body>
     <div class='container'>
@@ -12,15 +12,15 @@
       <div class="form-container">
         <div class="form-line">
             <label for="query">Search</label>
-            <input type="text" name="query" id="search-query" class="input1">
+            <input type="text" name="query" id="search-query" class="input1" oninput="getSearchResult()">
         </div>
         <div class="form-line">
             <p>Search Type</p>
-            <input type="radio" name="searchtype" id="search-song" class="radiobutton-check" checked>
+            <input type="radio" name="searchtype" id="search-song" class="searchtype" checked onchange="getSearchResult()">
             <label for="search-song">Song</label>
-            <input type="radio" name="searchtype" id="search-artist" class="radiobutton-check">
+            <input type="radio" name="searchtype" id="search-artist" class="searchtype" onchange="getSearchResult()">
             <label for="search-artist">Artist</label>
-            <input type="radio" name="searchtype" id="search-isrc" class="radiobutton-check">
+            <input type="radio" name="searchtype" id="search-isrc" class="searchtype" onchange="getSearchResult()">
             <label for="search-isrc">ISRC</label>
         </div>
     </div>
