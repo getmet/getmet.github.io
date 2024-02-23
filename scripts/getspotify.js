@@ -34,7 +34,7 @@ return clientdata;
 }
 async function getToken(){
 let clientdata=getClientData();
-if(checkCookie('tn')){
+if(checkCookie('tn') || checkCookie('tn')!==""){
   let tokenavl=getCookie('tn');
   console.log(`tn = ${tokenavl}`)
   return tokenavl;
