@@ -37,7 +37,7 @@ let clientdata=getClientData();
 if(checkCookie('tn')){
   let tokenavl=getCookie('tn');
   console.log(`tn = ${tokenavl}`)
-  return tn;
+  return tokenavl;
 }
 const token = await fetch("https://accounts.spotify.com/api/token", {
   method: 'POST',
